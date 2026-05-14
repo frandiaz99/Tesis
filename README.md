@@ -1,22 +1,22 @@
-# 1. INSTALAR DEPENDENCIAS
+## 1. INSTALAR DEPENDENCIAS
 
-## Herramientas de compilacion y librerias de desarrollo del kernel
+### Herramientas de compilacion y librerias de desarrollo del kernel
 
 ```bash
 sudo apt update
 sudo apt install build-essential gcc gfortran libpfm4-dev git
 ```
 
-# 2. DESCARGAR CODIGO FUENTE
+## 2. DESCARGAR CODIGO FUENTE
 
 ```bash
 git clone https://github.com/icl-utk-edu/papi.git
 cd papi/src
 ```
 
-# 3. MODIFICAR PERMISOS
+## 3. MODIFICAR PERMISOS
 
-## Modifica permisos para acceso a contadore de rendimiento
+### Modifica permisos para acceso a contadore de rendimiento
 
 - Esto vuelven a su valor original (4) al reiniciar el sistema.
 
@@ -86,7 +86,7 @@ echo "Entorno de PAPI cargado."
 
 ---
 
-# PROGRAMA 1.
+## PROGRAMA 1.
 
 Se corre un progrma que contiene:
 
@@ -108,7 +108,7 @@ Instrucciones ejecutadas: 450001600
 
 ---
 
-# PROGRAMA 2
+## PROGRAMA 2
 
 El programa contiene un matriz NxN y se mide los fallos en cache si se lee por columna y por fila.
 
@@ -127,36 +127,36 @@ Resultados Column-Major:
  > Fallos L1: 200518698
  > Ciclos:    2616316746
 
-\`\`\`
+```
 
------------------
+---
 
-# PROGRAMA 3
+## PROGRAMA 3
 
 Para medir el consumo de energia en la GPU con una GTX 1060 debo instalar cuda toolkit.
 
-\`\`\`bash
+```bash
 sudo apt update
 sudo apt install nvidia-cuda-toolkit
-\`\`\`
+```
 
 en papi/src ejecutamos: 
-\`\`\`bash
+```bash
 ./configure --prefix=$HOME/tesis_papi --with-components="nvml"
-\`\`\`
+```
 
 Se realizaron mediciones de la GPU en cuanto a energia total consumida, potencia y temperatura. Asi como el calculo final de potencia media [Energia(J)/Tiempo(s)]. 
 
 Se considero el uso normal de la GPU con un sleep(10). 
 
-\`\`\`c
+```c
 "nvml:::NVIDIA_GeForce_GTX_1060:device_0:total_energy_consumption",
 "nvml:::NVIDIA_GeForce_GTX_1060:device_0:power",
 "nvml:::NVIDIA_GeForce_GTX_1060:device_0:temperature"
-\`\`\`
+```
 
 *SALIDA Y MEDICIONES: *
-\`\`\`bash
+```bash
 === Iniciando medición de GPU ===
 Midiendo durante 10 segundos...
 
@@ -166,4 +166,4 @@ Midiendo durante 10 segundos...
 3. Temperatura Final       : 32 °C
 ---------------------------------
 -> Potencia Media Calculada: 15865.881 Watts
-\`\`\`
+```
