@@ -1,0 +1,64 @@
+gitignore_content = """# Environment and Secrets 
+env.sh
+.env
+*.env
+*.local
+
+# C / C++ - Compilation and Build
+*.o
+*.out
+*.so
+*.a
+*.la
+*.lo
+*.slo
+*.obj
+build/
+bin/
+obj/
+dist/
+
+# Python - Analysis and Wrappers
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.ipython/
+.ipynb_checkpoints/
+
+# Data and Logs (To avoid bloating the repo)
+*.log
+*.dat
+*.gz
+*.papi
+# Se recomienda no subir datasets pesados.
+# Si tus CSVs de mediciones son grandes, descomenta la siguiente linea:
+# *.csv
+# Pero permite un archivo de ejemplo para que tu codigo sea testeable:
+!ejemplo_medicion.csv
+
+# Performance / Benchmark Specifics
+# Evitar subir carpetas de benchmarks licenciados o pesados
+SPECpower*/
+MLPerf*/
+results/
+
+# OS Specific
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# IDE Specific
+.vscode/
+.idea/
+*.swp
+"""
+
+with open(".gitignore", "w") as f:
+    f.write(gitignore_content)
+
+print(".gitignore file created successfully.")
